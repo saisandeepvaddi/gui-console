@@ -1,5 +1,5 @@
 import { h, render } from 'preact';
-import invariant from 'tiny-invariant';
+
 import App from './App';
 import { createRoot, getOriginalConsole } from './utils';
 
@@ -8,7 +8,10 @@ import { createRoot, getOriginalConsole } from './utils';
 export default function Console() {
   const root = createRoot();
 
-  invariant(root !== null, 'gui-console: Failed to create a root element');
+  if (!root) {
+    getOriginalConsole().error('gui-console: Error creating node');
+    return;
+  }
 
   render(<App />, root);
 
