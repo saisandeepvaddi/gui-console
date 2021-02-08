@@ -1,3 +1,5 @@
+//eslint-disable
+
 module.exports = {
   rollup(config) {
     // if (config.output.format === 'umd') {
