@@ -13,7 +13,6 @@ export const createRoot = () => {
 };
 
 const console_backup = console;
-
 export const getOriginalConsole = () => {
   return console_backup;
 };

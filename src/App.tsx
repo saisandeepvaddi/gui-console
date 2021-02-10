@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { errorStyles, logStyles, warnStyles, infoStyles } from './styles';
+import Content from './Content';
 import { getOriginalConsole } from './utils';
 
 const _c = getOriginalConsole();
@@ -45,7 +45,7 @@ export default function App() {
           setState((state: any) => (
             <Fragment>
               {state}
-              <div style={logStyles}>{args}</div>
+              <Content type="log" args={[...args]} />
             </Fragment>
           ));
       },
@@ -55,7 +55,7 @@ export default function App() {
           setState((state: any) => (
             <Fragment>
               {state}
-              <div style={warnStyles}>{args}</div>
+              <Content type="warn" args={[...args]} />
             </Fragment>
           ));
       },
@@ -65,7 +65,7 @@ export default function App() {
           setState((state: any) => (
             <Fragment>
               {state}
-              <div style={errorStyles}>{args}</div>
+              <Content type="error" args={[...args]} />
             </Fragment>
           ));
       },
@@ -75,7 +75,7 @@ export default function App() {
           setState((state: any) => (
             <Fragment>
               {state}
-              <div style={infoStyles}>{args}</div>
+              <Content type="info" args={[...args]} />
             </Fragment>
           ));
       },
